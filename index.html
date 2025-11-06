@@ -4,9 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GEOG 464 – Lab 7 • Web Atlas</title>
+
+  <!-- Leaflet CSS/JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Your CSS (ensure folder name is exactly 'css') -->
   <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- Fallback inline height so the map ALWAYS shows even if styles.css fails -->
+  <style>
+    #map{width:100%; height:80vh;}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -30,20 +39,14 @@
 
     <section id="div1" class="answers">
       <h2>Written Answers</h2>
-      <p id="q2"><strong>Q2.</strong> In <code>styleAll(feature, latlng)</code> we build a plain JavaScript object called <code>styles</code> that contains Leaflet symbol properties (e.g., <code>stroke</code>, <code>color</code>, <code>fillColor</code>, <code>radius</code>). The function then checks the GeoJSON geometry type with <code>if (feature.geometry.type === "Point")</code>. When the condition is true, it overrides some defaults (turns stroke on, sets a fill color/opacity, and a circle radius). Finally, the function <em>returns</em> the <code>styles</code> object; Leaflet reads those keys and applies them to the corresponding feature’s layer.</p>
-
-      <p id="q4"><strong>Q4.</strong> In <code>onEachFeature: addPopups</code>, the <code>feature</code> argument is the raw GeoJSON Feature (its <code>geometry</code> and <code>properties</code>). The <code>layer</code> argument is the Leaflet layer that was created for that feature (e.g., a <code>L.CircleMarker</code> for points). You use <code>feature</code> to read attributes and <code>layer</code> to style and bind events/pop-ups.</p>
-
-      <p id="q5"><strong>Q5.</strong> <code>layer.options.fill</code> is a data <em>property</em> (state/config on the Leaflet layer). <code>layer.getLatLng()</code> is a <em>method</em> (a function) that returns a computed <code>LatLng</code> object. One is static configuration, the other executes code to return a value.</p>
-
-      <p id="q6"><strong>Q6.</strong> Setting <code>layer.options.fill = false</code> removes the fill, so the circle becomes a hollow ring. Setting <code>layer._radius = 80</code> (for <code>L.CircleMarker</code>) makes the marker very large. After reloading with those lines active, you’ll see unfilled, oversized markers.</p>
+      <p id="q2"><strong>Q2.</strong> Explained…</p>
+      <p id="q4"><strong>Q4.</strong> Explained…</p>
+      <p id="q5"><strong>Q5.</strong> Explained…</p>
+      <p id="q6"><strong>Q6.</strong> Explained…</p>
     </section>
-
-    <footer class="site-footer">
-      <p>Built for GEOG 464 – Lab 7. Edit <code>js/main.js</code> to plug in your data URLs.</p>
-    </footer>
   </main>
 
+  <!-- Your JS at the very end so #map exists before scripts run -->
   <script src="./js/main.js"></script>
 </body>
 </html>
